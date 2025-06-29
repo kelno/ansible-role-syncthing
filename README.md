@@ -16,7 +16,6 @@ The only way to set Syncthing options is to edit its `config.xml` file, see the
 
 ```yaml
 # If the repository/key changes or you want to host your own, change these:
-syncthing_apt_key_id:
 syncthing_apt_key_url:
 syncthing_apt_repository:
 

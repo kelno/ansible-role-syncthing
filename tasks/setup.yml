@@ -12,7 +12,6 @@
 
 - name: Add syncthing repository key
   apt_key:
-    id: "{{syncthing_apt_key_id}}"
     url: "{{syncthing_apt_key_url}}"
     keyring: "{{syncthing_apt_key_path}}"
 
