@@ -6,7 +6,7 @@ galaxy_info:
   license: "MIT"
   galaxy_tags: ["syncthing", "cloud"]
 
-  min_ansible_version: 2.10
+  min_ansible_version: "2.10"
   platforms:
     - name: "Debian"
       versions:
