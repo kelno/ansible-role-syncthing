@@ -1,0 +1,40 @@
+---
+argument_specs:
+  main:
+    short_description: "Syncthing role argument specifications"
+    options:
+      syncthing_user:
+        type: "str"
+        description: "Username for the Syncthing service"
+        default: "syncthing"
+      syncthing_user_home:
+        type: "str"
+        description: "Home directory for the Syncthing user"
+        default: "/home/syncthing"
+      syncthing_manage_user:
+        type: "bool"
+        description: "Set this to false if you don't want to role to create and manage the user"
+        default: true
+      syncthing_config_directory:
+        type: "str"
+        description: "Relative path to the Syncthing configuration directory from the user's home"
+        default: ".local/state/syncthing"
+      syncthing_keep_local_config:
+        type: "bool"
+        description: "Local config files will be untouched if true."
+        default: true
+      syncthing_config_cert:
+        type: "str"
+        description: "Path to the Syncthing certificate (only used if syncthing_keep_local_config is false)"
+      syncthing_config_key:
+        type: "str"
+        description: "Path to the Syncthing key (only used if syncthing_keep_local_config is false)"
+      syncthing_config_https_cert:
+        type: "str"
+        description: "Path to the Syncthing HTTPS certificate (only used if syncthing_keep_local_config is false)"
+      syncthing_config_https_key:
+        type: "str"
+        description: "Path to the Syncthing HTTPS key (only used if syncthing_keep_local_config is false)"
+      syncthing_config_config:
+        type: "str"
+        description: "Path to the Syncthing configuration file (only used if syncthing_keep_local_config is false)"

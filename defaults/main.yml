@@ -1,7 +1,7 @@
 ---
-syncthing_apt_key_url: "https://syncthing.net/release-key.gpg"
-syncthing_apt_key_path: "/usr/share/keyrings/syncthing-archive-keyring.gpg"
-syncthing_apt_repository: "deb [signed-by={{syncthing_apt_key_path}}] https://apt.syncthing.net/ syncthing stable"
+_syncthing_apt_key_url: "https://syncthing.net/release-key.gpg"
+_syncthing_apt_key_path: "/usr/share/keyrings/syncthing-archive-keyring.gpg"
+_syncthing_apt_repository: "deb [signed-by={{syncthing_apt_key_path}}] https://apt.syncthing.net/ syncthing stable"
 
 syncthing_user: "syncthing"
 syncthing_user_home: "/home/syncthing"
@@ -9,11 +9,11 @@ syncthing_manage_user: true
 # Relative from home
 syncthing_config_directory: ".local/state/syncthing"
 
-syncthing_fetch_config: false
-syncthing_fetch_dir: "./files"
+syncthing_keep_local_config: true
 
-syncthing_config_cert:
-syncthing_config_key:
-syncthing_config_https_cert:
-syncthing_config_https_key:
-syncthing_config_config:
+syncthing_fetch_config: false
+syncthing_config_cert: null
+syncthing_config_key: null
+syncthing_config_https_cert: null
+syncthing_config_https_key: null
+syncthing_config_config: null

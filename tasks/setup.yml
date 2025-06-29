@@ -12,12 +12,12 @@
 
 - name: Add syncthing repository key
   apt_key:
-    url: "{{syncthing_apt_key_url}}"
-    keyring: "{{syncthing_apt_key_path}}"
+    url: "{{_syncthing_apt_key_url}}"
+    keyring: "{{_syncthing_apt_key_path}}"
 
 - name: Add syncthing repository
   apt_repository:
-    repo: "{{syncthing_apt_repository}}"
+    repo: "{{_syncthing_apt_repository}}"
 
 - name: Install syncthing package
   apt:
