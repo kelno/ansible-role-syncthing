@@ -6,6 +6,8 @@ syncthing_apt_repository: "deb [signed-by={{syncthing_apt_key_path}}] https://ap
 syncthing_user: "syncthing"
 syncthing_user_home: "/home/syncthing"
 syncthing_manage_user: true
+# Relative from home
+syncthing_config_directory: ".local/state/syncthing"
 
 syncthing_fetch_config: false
 syncthing_fetch_dir: "./files"

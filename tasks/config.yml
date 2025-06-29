@@ -2,7 +2,7 @@
 - name: Set Syncthing config
   no_log: true
   copy:
-    dest="{{syncthing_user_home}}/.config/syncthing/{{item.name}}"
+    dest="{{syncthing_user_home}}/{{syncthing_config_directory}}/{{item.name}}"
     content="{{item.content}}"
     owner="syncthing"
     group="syncthing"
