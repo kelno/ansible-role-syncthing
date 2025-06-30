@@ -28,7 +28,7 @@ Example Playbook
 # Install Syncthing
 - hosts: servers
   roles:
-    - { role: l-p.syncthing }
+    - { role: syncthing }
 ```
 
 The Syncthing configuration is dynamic and edited at runtime using the GUI.  

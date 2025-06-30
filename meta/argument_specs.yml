@@ -5,36 +5,43 @@ argument_specs:
     options:
       syncthing_user:
         type: "str"
-        description: "Username for the Syncthing service"
-        default: "syncthing"
+        description: "Username (and group) for the Syncthing service"
       syncthing_user_home:
         type: "str"
         description: "Home directory for the Syncthing user"
-        default: "/home/syncthing"
       syncthing_manage_user:
         type: "bool"
-        description: "Set this to false if you don't want to role to create and manage the user"
-        default: true
+        description: "True for this role to creates and manages the user"
       syncthing_config_directory:
         type: "str"
         description: "Relative path to the Syncthing configuration directory from the user's home"
         default: ".local/state/syncthing"
-      syncthing_keep_local_config:
+      syncthing_reset_local_config:
         type: "bool"
-        description: "Local config files will be untouched if true."
-        default: true
+        description: "If set, local config is cleared first."
       syncthing_config_cert:
         type: "str"
-        description: "Path to the Syncthing certificate (only used if syncthing_keep_local_config is false)"
+        description: "Path to the Syncthing certificate"
+        required: false
       syncthing_config_key:
         type: "str"
-        description: "Path to the Syncthing key (only used if syncthing_keep_local_config is false)"
+        description: "Path to the Syncthing key"
+        required: false
       syncthing_config_https_cert:
         type: "str"
-        description: "Path to the Syncthing HTTPS certificate (only used if syncthing_keep_local_config is false)"
+        description: "Path to the Syncthing HTTPS certificate"
+        required: false
       syncthing_config_https_key:
         type: "str"
-        description: "Path to the Syncthing HTTPS key (only used if syncthing_keep_local_config is false)"
+        description: "Path to the Syncthing HTTPS key"
+        required: false
       syncthing_config_config:
         type: "str"
-        description: "Path to the Syncthing configuration file (only used if syncthing_keep_local_config is false)"
+        description: "Path to the Syncthing configuration file"
+        required: false
+      syncthing_device_name:
+        type: "str"
+        description: "Name of the Syncthing device, defaults to the inventory name"
+      syncthing_gui_address:
+        type: "str"
+        description: "<address>:<port> for the Syncthing GUI"

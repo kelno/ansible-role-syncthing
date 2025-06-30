@@ -1,11 +1,10 @@
 ---
 dependencies: []
 galaxy_info:
-  author: "Léo Peltier"
+  author: "Léo Peltier, Kelno"
   description: "Install Syncthing on Debian"
   license: "MIT"
   galaxy_tags: ["syncthing", "cloud"]
-
   min_ansible_version: "2.10"
   platforms:
     - name: "Debian"

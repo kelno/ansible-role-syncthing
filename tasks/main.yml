@@ -1,5 +1,11 @@
 ---
-- import_tasks: setup.yml
 
-- import_tasks: config.yml
-  when: "not syncthing_keep_local_config"
+- name: Reset Syncthing configuration
+  ansible.builtin.import_tasks: reset_config.yml
+  when: syncthing_reset_local_config
+
+- name: Setup Syncthing
+  ansible.builtin.import_tasks: setup.yml
+
+- name: Configure Syncthing
+  ansible.builtin.import_tasks: config.yml

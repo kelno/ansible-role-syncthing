@@ -1,29 +1,29 @@
 ---
 - name: Add syncthing user
-  user:
-    name: "{{syncthing_user}}"
+  ansible.builtin.user:
+    name: "{{ syncthing_user }}"
     shell: "/usr/sbin/nologin"
     password: "!"
     system: true
     createhome: true
-    home: "{{syncthing_user_home}}"
+    home: "{{ syncthing_user_home }}"
   when: "syncthing_manage_user"
 
 - name: Add syncthing repository key
-  apt_key:
-    url: "{{_syncthing_apt_key_url}}"
-    keyring: "{{_syncthing_apt_key_path}}"
+  ansible.builtin.apt_key:
+    url: "{{ _syncthing_apt_key_url }}"
+    keyring: "{{ _syncthing_apt_key_path }}"
 
 - name: Add syncthing repository
-  apt_repository:
-    repo: "{{_syncthing_apt_repository}}"
+  ansible.builtin.apt_repository:
+    repo: "{{ _syncthing_apt_repository }}"
 
 - name: Install syncthing package
-  apt:
+  ansible.builtin.apt:
     name: syncthing
 
 - name: Copy syncthing systemd service
-  copy:
+  ansible.builtin.copy:
     src: "/usr/lib/systemd/user/syncthing.service"
     dest: "/etc/systemd/system/syncthing.service"
     remote_src: true
@@ -33,19 +33,19 @@
   when: not ansible_check_mode
 
 - name: Set syncthing user
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "/etc/systemd/system/syncthing.service"
-    line: "User={{syncthing_user}}"
+    line: "User={{ syncthing_user }}"
     regexp: "^User="
     insertafter: "^\\[Service\\]$"
   when: not ansible_check_mode
 
 - name: Reload systemctl
-  systemd:
+  ansible.builtin.systemd:
     daemon-reload: true
 
 - name: Start syncthing
-  service:
+  ansible.builtin.service:
     name: "syncthing"
     state: "started"
     enabled: true
