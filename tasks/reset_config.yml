@@ -1,5 +1,5 @@
 ---
-- name: Reset local configuration if requested
+- name: Reset local configuration
   ansible.builtin.file:
     path: "{{ syncthing_user_home }}/{{ syncthing_config_directory }}/{{ item }}"
     state: absent
@@ -9,7 +9,6 @@
     - https-cert.pem
     - https-key.pem
     - config.xml
-  when: syncthing_reset_local_config
   notify: Restart Syncthing # Restart to regenerate files
 
 - name: Populate service facts
