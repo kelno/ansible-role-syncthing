@@ -1,7 +1,7 @@
 ---
 _syncthing_apt_key_url: "https://syncthing.net/release-key.gpg"
 _syncthing_apt_key_path: "/usr/share/keyrings/syncthing-archive-keyring.gpg"
-_syncthing_apt_repository: "deb [signed-by={{syncthing_apt_key_path}}] https://apt.syncthing.net/ syncthing stable"
+_syncthing_apt_repository: "deb [signed-by={{_syncthing_apt_key_path}}] https://apt.syncthing.net/ syncthing stable"
 
 syncthing_user: "syncthing"
 syncthing_user_home: "/home/syncthing"
