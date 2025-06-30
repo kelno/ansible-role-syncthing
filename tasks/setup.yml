@@ -7,8 +7,7 @@
     system: true
     createhome: true
     home: "{{syncthing_user_home}}"
-  when:
-    "syncthing_manage_user"
+  when: "syncthing_manage_user"
 
 - name: Add syncthing repository key
   apt_key:
@@ -31,6 +30,7 @@
     owner: "root"
     group: "root"
     mode: "0644"
+  when: not ansible_check_mode
 
 - name: Set syncthing user
   lineinfile:
@@ -38,6 +38,7 @@
     line: "User={{syncthing_user}}"
     regexp: "^User="
     insertafter: "^\\[Service\\]$"
+  when: not ansible_check_mode
 
 - name: Reload systemctl
   systemd:
@@ -48,3 +49,4 @@
     name: "syncthing"
     state: "started"
     enabled: true
+  when: not ansible_check_mode
