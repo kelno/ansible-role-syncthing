@@ -30,15 +30,21 @@
     owner: "root"
     group: "root"
     mode: "0644"
-  when: not ansible_check_mode
 
-- name: Set syncthing user
-  ansible.builtin.lineinfile:
-    path: "/etc/systemd/system/syncthing.service"
-    line: "User={{ syncthing_user }}"
-    regexp: "^User="
-    insertafter: "^\\[Service\\]$"
-  when: not ansible_check_mode
+- name: Ensure systemd override directory exists
+  file:
+    path: /etc/systemd/system/syncthing.service.d
+    state: directory
+
+- name: Set syncthing user override
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/syncthing.service.d/override.conf
+    content: |
+      [Service]
+      User={{ syncthing_user }}
+    owner: root
+    group: root
+    mode: '0644'
 
 - name: Reload systemctl
   ansible.builtin.systemd:
