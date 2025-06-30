@@ -32,9 +32,12 @@
     mode: "0644"
 
 - name: Ensure systemd override directory exists
-  file:
+  ansible.builtin.file:
     path: /etc/systemd/system/syncthing.service.d
     state: directory
+    owner: "root"
+    group: "root"
+    mode: "0644"
 
 - name: Set syncthing user override
   ansible.builtin.copy:
